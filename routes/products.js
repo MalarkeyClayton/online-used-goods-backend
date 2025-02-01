@@ -5,7 +5,7 @@ const {
   createOne,
   updateOne,
   deleteOne,
-} = require("../controllers/test");
+} = require("../controllers/products");
 
 router.get("/", getAll);
 router.get("/:id", getOne);
