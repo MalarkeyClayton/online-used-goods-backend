@@ -24,13 +24,21 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    image: {
+    discount: {
+      type: Number,
+      default: 0,
+    },
+    images: {
       type: [String],
       required: true,
     },
     amount: {
       type: Number,
       default: 1,
+    },
+    rating: {
+      type: Number,
+      default: 0,
     },
     // attributes: [
     //   {

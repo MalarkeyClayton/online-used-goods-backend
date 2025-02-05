@@ -6,11 +6,12 @@ const {
   updateOne,
   deleteOne,
 } = require("../controllers/products");
+const { requireSeller } = require("../middlewares/authMiddleware");
 
 router.get("/", getAll);
 router.get("/:id", getOne);
-router.post("/", createOne);
-router.put("/:id", updateOne);
-router.delete("/:id", deleteOne);
+router.post("/", requireSeller, createOne);
+router.put("/:id", requireSeller, updateOne);
+router.delete("/:id", requireSeller, deleteOne);
 
 module.exports = router;
