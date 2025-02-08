@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
+const PORT = process.env.PORT || 8001;
 
 // import routes
 const indexRoutes = require("./routes/index");
@@ -47,7 +48,7 @@ app.use("/*", errorRoutes);
 
 // Connect to MongoDB
 db().then(() => {
-  app.listen(8001, () =>
-    console.log("Server running on port 8001!")
+  app.listen(PORT, () =>
+    console.log("Server running!")
   );
 });
