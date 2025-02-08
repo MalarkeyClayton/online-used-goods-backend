@@ -11,7 +11,12 @@ const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/users");
 const categoryRoutes = require("./routes/categories");
 const productRoutes = require("./routes/products");
-const { connectToDB } = require("./db");
+const cartRoutes = require("./routes/cart");
+const orderRoutes = require("./routes/order");
+const errorRoutes = require("./routes/404");
+
+require("dotenv").config();
+const db = require("./db");
 
 const app = express();
 
@@ -35,12 +40,13 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/products", productRoutes);
-app.use("/*", require("./routes/404"));
+app.use("/api/cart", cartRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/*", errorRoutes);
 
 // Connect to MongoDB
-connectToDB().then(() => {
-  // eslint-disable-next-line no-undef
-  app.listen(process.env.PORT || 8001, () =>
+db().then(() => {
+  app.listen(8001, () =>
     console.log("Server running on port 8001!")
   );
 });
