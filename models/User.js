@@ -15,11 +15,23 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    role: {
+      type: String,
+      enum: ["admin", 'seller', "user"],
+      default: "user",
+    },
+    isVerified: {
+      type: Boolean,
+      default: true,
+    },
     avatar: {
       type: String,
       default: "/avatar/default-avatar.svg",
     },
     address: {
+      type: String,
+    },
+    country: {
       type: String,
     },
     phone: {
@@ -42,10 +54,6 @@ const userSchema = new mongoose.Schema(
     },
     twitter: {
       type: String,
-    },
-    isVerified: {
-      type: Boolean,
-      default: true,
     },
   },
   {

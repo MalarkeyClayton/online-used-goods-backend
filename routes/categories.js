@@ -6,11 +6,12 @@ const {
   updateOne,
   deleteOne,
 } = require("../controllers/categories");
+const { requireAdmin } = require("../middlewares/authMiddleware");
 
 router.get("/", getAll);
 router.get("/:id", getOne);
-router.post("/", createOne);
-router.put("/:id", updateOne);
-router.delete("/:id", deleteOne);
+router.post("/", requireAdmin, createOne);
+router.put("/:id", requireAdmin, updateOne);
+router.delete("/:id", requireAdmin, deleteOne);
 
 module.exports = router;

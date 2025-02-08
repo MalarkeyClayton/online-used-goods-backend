@@ -3,9 +3,11 @@ const Category = require("../models/Category");
 exports.getAll = async (req, res) => {
   try {
     const query = req.query;
-    const filter = {};
-    if (query.categoryId) {
-      filter.categoryId = query.categoryId;
+    const filter = {
+      parentId: null,
+    };
+    if (query.parentId) {
+      filter.parentId = query.parentId;
     }
     const categories = await Category.find(filter);
     res.status(200).json(categories);
