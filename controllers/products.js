@@ -3,6 +3,13 @@ const Product = require("../models/Product");
 exports.getAll = async (req, res) => {
   try {
     const query = req.query;
+    const filter = {};
+    if (query.categoryId) {
+      filter.categoryId = query.categoryId;
+    }
+    if (query.title) {
+      filter.title = { $regex: query.title, $options: "i" };
+    }
     const products = await Product.find(query);
     res.status(200).json(products);
   } catch (error) {

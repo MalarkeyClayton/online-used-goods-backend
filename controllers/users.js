@@ -21,3 +21,10 @@ exports.updateOne = (req, res) => {
     .then((user) => res.status(200).json(user))
     .catch((err) => res.status(404).json({ message: err.message }));
 };
+
+exports.deleteOne = (req, res) => {
+  const { id } = req.params;
+  User.findByIdAndDelete(id)
+    .then((user) => res.status(200).json(user))
+    .catch((err) => res.status(404).json({ message: err.message }));
+};
