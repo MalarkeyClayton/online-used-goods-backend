@@ -15,7 +15,6 @@ const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order");
 const errorRoutes = require("./routes/404");
 
-require("dotenv").config();
 const db = require("./db");
 
 const app = express();
