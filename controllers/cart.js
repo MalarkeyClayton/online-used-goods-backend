@@ -21,7 +21,7 @@ exports.create = async (req, res) => {
 exports.getByUserId = async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await Cart.find({ user: id }).populate({
+    const result = await Cart.find({ userId: id }).populate({
       path: "product",
       populate: { path: "brand" },
     });
@@ -70,7 +70,7 @@ exports.deleteById = async (req, res) => {
 exports.deleteByUserId = async (req, res) => {
   try {
     const { id } = req.params;
-    await Cart.deleteMany({ user: id });
+    await Cart.deleteMany({ userId: id });
     res.sendStatus(204);
   } catch (error) {
     console.log(error);
