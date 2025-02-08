@@ -29,7 +29,7 @@ const products = [
     price: 13,
     discount: 8.14,
     categoryId: "65a7e24602e12c44f599442e",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic2.png",
     amount: 10,
     rating: 5,
     images: [
@@ -49,7 +49,7 @@ const products = [
     price: 1249,
     discount: 15.46,
     categoryId: "65a7e24602e12c44f599442c",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic3.png",
     amount: 20,
     rating: 3,
     images: ["https://cdn.dummyjson.com/product-images/3/1.jpg"],
@@ -63,7 +63,7 @@ const products = [
     price: 280,
     discount: 17.91,
     categoryId: "65a7e24602e12c44f599442c",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic4.png",
     amount: 21,
     rating: 4.5,
     images: [
@@ -83,7 +83,7 @@ const products = [
     price: 499,
     discount: 10.58,
     categoryId: "65a7e24602e12c44f599442c",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic5.png",
     amount: 3,
     rating: 3,
     images: [
@@ -102,7 +102,7 @@ const products = [
     price: 1749,
     discount: 11.02,
     categoryId: "65a7e24602e12c44f599442d",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic6.png",
     amount: 7,
     rating: 5,
     images: [
@@ -122,7 +122,7 @@ const products = [
     price: 1499,
     discount: 4.15,
     categoryId: "65a7e24602e12c44f599442d",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic7.png",
     amount: 8,
     rating: 2,
     images: [
@@ -141,7 +141,7 @@ const products = [
     price: 1499,
     discount: 10.23,
     categoryId: "65a7e24602e12c44f599442d",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic8.png",
     amount: 2,
     rating: 1,
     images: [
@@ -161,7 +161,7 @@ const products = [
     price: 1099,
     discount: 11.83,
     categoryId: "65a7e24602e12c44f599442d",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic9.png",
     amount: 26,
     rating: 3,
     images: [
@@ -181,7 +181,7 @@ const products = [
     price: 1099,
     discount: 6.18,
     categoryId: "65a7e24602e12c44f599442d",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic10.png",
     amount: 12,
     rating: 3,
     images: [
@@ -200,7 +200,7 @@ const products = [
     price: 13,
     discount: 8.4,
     categoryId: "65a7e24602e12c44f599442e",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic11.png",
     amount: 22,
     rating: 5,
     images: [
@@ -218,7 +218,7 @@ const products = [
     price: 40,
     discount: 15.66,
     categoryId: "65a7e24602e12c44f599442e",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic12.png",
     amount: 11,
     rating: 5,
     images: [
@@ -238,7 +238,7 @@ const products = [
     price: 13,
     discount: 8.14,
     categoryId: "65a7e24602e12c44f599442e",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic13.png",
     amount: 5,
     rating: 4,
     images: [
@@ -258,7 +258,7 @@ const products = [
     price: 120,
     discount: 15.6,
     categoryId: "65a7e24602e12c44f599442e",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic14.png",
     amount: 2,
     rating: 4,
     images: [
@@ -277,7 +277,7 @@ const products = [
     price: 30,
     discount: 10.99,
     categoryId: "65a7e24602e12c44f599442e",
-    banner: "/uploads/products/pic1.png",
+    banner: "/uploads/products/pic15.png",
     amount: 2,
     rating: 4,
     images: [
