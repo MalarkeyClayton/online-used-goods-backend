@@ -15,6 +15,7 @@ const orders = [
           price: 549,
           discount: 12.96,
           categoryId: "65a7e24602e12c44f599442c",
+          banner: "/uploads/products/pic1.png",
           images: [
             "https://cdn.dummyjson.com/product-images/1/1.jpg",
             "https://cdn.dummyjson.com/product-images/1/2.jpg",
@@ -61,6 +62,7 @@ const orders = [
           price: 13,
           discount: 8.14,
           categoryId: "65a7e24602e12c44f599442e",
+          banner: "/uploads/products/pic1.png",
           images: [
             "https://cdn.dummyjson.com/product-images/13/1.jpg",
             "https://cdn.dummyjson.com/product-images/13/2.png",
@@ -83,6 +85,7 @@ const orders = [
           price: 13,
           discount: 8.14,
           categoryId: "65a7e24602e12c44f599442e",
+          banner: "/uploads/products/pic1.png",
           images: [
             "https://cdn.dummyjson.com/product-images/13/1.jpg",
             "https://cdn.dummyjson.com/product-images/13/2.png",
