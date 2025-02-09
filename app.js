@@ -49,7 +49,8 @@ app.use("/*", errorRoutes);
 
 // Connect to MongoDB
 db().then(() => {
-  app.listen(8001, () =>
-    console.log("Server running on port 8001!")
+  // eslint-disable-next-line no-undef
+  app.listen(process.env.PORT || 8001, () =>
+    console.log("Server running")
   );
 });
