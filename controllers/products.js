@@ -2,15 +2,28 @@ const Product = require("../models/Product");
 
 exports.getAll = async (req, res) => {
   try {
-    const query = req.query;
     const filter = {};
-    if (query.categoryId) {
-      filter.categoryId = query.categoryId;
+    const {
+      categoryId,
+      title,
+      page = 1,
+      limit = 10,
+      sortBy = "name",
+      order = "asc",
+    } = req.query;
+
+    if (categoryId) {
+      filter.categoryId = categoryId;
     }
-    if (query.title) {
-      filter.title = { $regex: query.title, $options: "i" };
+
+    if (title) {
+      filter.title = { $regex: title, $options: "i" };
     }
-    const products = await Product.find(query);
+
+    const products = await Product.find(filter)
+      .sort({ [sortBy]: order === "asc" ? 1 : -1 })
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ error: error.message });

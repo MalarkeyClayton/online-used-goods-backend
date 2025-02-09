@@ -3,7 +3,6 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
-const PORT = process.env.PORT || 8001;
 
 // import routes
 const indexRoutes = require("./routes/index");
@@ -15,6 +14,7 @@ const productRoutes = require("./routes/products");
 const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order");
 const botchatRoutes = require("./routes/botchat");
+const paymentRoutes = require("./routes/payment");
 const errorRoutes = require("./routes/404");
 
 const db = require("./db");
@@ -44,11 +44,13 @@ app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/chatwithbot", botchatRoutes);
+app.use("/api/payment", paymentRoutes);
 app.use("/*", errorRoutes);
 
 // Connect to MongoDB
 db().then(() => {
-  app.listen(PORT, () =>
-    console.log("Server running!")
+  // eslint-disable-next-line no-undef
+  app.listen(process.env.PORT || 8001, () =>
+    console.log("Server running")
   );
 });
