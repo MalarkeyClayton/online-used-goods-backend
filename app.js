@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
+// eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 8001;
 
 // import routes
