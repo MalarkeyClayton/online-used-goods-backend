@@ -14,6 +14,7 @@ const productRoutes = require("./routes/products");
 const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order");
 const botchatRoutes = require("./routes/botchat");
+const paymentRoutes = require("./routes/payment");
 const errorRoutes = require("./routes/404");
 
 const db = require("./db");
@@ -43,6 +44,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/chatwithbot", botchatRoutes);
+app.use("/api/payment", paymentRoutes);
 app.use("/*", errorRoutes);
 
 // Connect to MongoDB
