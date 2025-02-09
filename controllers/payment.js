@@ -1,6 +1,6 @@
-const { STRIPE_SECRET_KEY } = require("../config/constants");
+// eslint-disable-next-line no-undef
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const Payment = require("../models/Payment");
-const stripe = require("stripe")(STRIPE_SECRET_KEY);
 
 exports.createPaymentIntent = async (req, res) => {
   try {
