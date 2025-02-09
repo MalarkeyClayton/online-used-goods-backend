@@ -1,6 +1,5 @@
 const axios = require("axios");
 const Botchat = require("../models/Botchat");
-require("dotenv").config();
 
 // eslint-disable-next-line no-undef
 const LLAMA_API_KEY = `Bearer ${process.env.LLAMA_API_KEY}`;
