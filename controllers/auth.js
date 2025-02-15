@@ -73,7 +73,17 @@ exports.verifySeller = async (req, res) => {
   if (Object.keys(errors).length > 0) {
     return res.status(400).json({ errors });
   }
-  const {address, country, phone, skypeId, telegramId, discordId, linkedin, facebook, twitter} = req.body;
+  const {
+    address,
+    country,
+    phone,
+    skypeId,
+    telegramId,
+    discordId,
+    linkedin,
+    facebook,
+    twitter,
+  } = req.body;
   try {
     const user = await User.findById(req.user._id);
     user.address = address;
@@ -87,11 +97,11 @@ exports.verifySeller = async (req, res) => {
     if (twitter) user.twitter = twitter;
     user.isVerified = true;
     await user.save();
-    res.status(200).json({message: 'User verified successfully!'});
+    res.status(200).json({ message: "User verified successfully!" });
   } catch (error) {
-    res.status(500).json({error: error.message});
+    res.status(500).json({ error: error.message });
   }
-}
+};
 
 // Logout
 exports.logout = (req, res) => {
