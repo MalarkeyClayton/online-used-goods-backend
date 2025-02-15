@@ -13,7 +13,7 @@ exports.register = async (req, res) => {
   if (Object.keys(errors).length > 0) {
     return res.status(400).json({ errors });
   }
-  const { name, email, password } = req.body;
+  const { name, email, address, phone, country, password } = req.body;
   const role = req.body.seller ? "seller" : "user";
   const isVerified = !req.body.seller;
 
@@ -26,6 +26,9 @@ exports.register = async (req, res) => {
     const user = new User({
       name,
       email,
+      country,
+      address,
+      phone,
       password: hashedPassword,
       role,
       isVerified,
