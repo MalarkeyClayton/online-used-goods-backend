@@ -10,11 +10,9 @@ exports.create = async (req, res) => {
     res.status(201).json(created);
   } catch (error) {
     console.log(error);
-    return res
-      .status(500)
-      .json({
-        message: "Error adding product to cart, please trying again later",
-      });
+    return res.status(500).json({
+      message: "Error adding product to cart, please trying again later",
+    });
   }
 };
 
@@ -29,11 +27,9 @@ exports.getByUserId = async (req, res) => {
     res.status(200).json(result);
   } catch (error) {
     console.log(error);
-    return res
-      .status(500)
-      .json({
-        message: "Error fetching cart items, please trying again later",
-      });
+    return res.status(500).json({
+      message: "Error fetching cart items, please trying again later",
+    });
   }
 };
 
@@ -46,11 +42,9 @@ exports.updateById = async (req, res) => {
     res.status(200).json(updated);
   } catch (error) {
     console.log(error);
-    return res
-      .status(500)
-      .json({
-        message: "Error updating cart items, please trying again later",
-      });
+    return res.status(500).json({
+      message: "Error updating cart items, please trying again later",
+    });
   }
 };
 
