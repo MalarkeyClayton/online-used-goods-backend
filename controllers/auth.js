@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { OAuth2Client } = require("google-auth-library");
 const User = require("../models/User");
 const validateRegisterUser = require("../validation/validateRegisterUser");
 const validateLoginUser = require("../validation/validateLoginUser");
@@ -12,7 +13,7 @@ exports.register = async (req, res) => {
   if (Object.keys(errors).length > 0) {
     return res.status(400).json({ errors });
   }
-  const { name, email, password } = req.body;
+  const { name, email, address, phone, country, password } = req.body;
   const role = req.body.seller ? "seller" : "user";
   const isVerified = !req.body.seller;
 
@@ -25,6 +26,9 @@ exports.register = async (req, res) => {
     const user = new User({
       name,
       email,
+      country,
+      address,
+      phone,
       password: hashedPassword,
       role,
       isVerified,
@@ -107,4 +111,60 @@ exports.verifySeller = async (req, res) => {
 exports.logout = (req, res) => {
   res.clearCookie("token");
   res.status(200).json({ message: "Logged out successfully!" });
+};
+
+// eslint-disable-next-line no-undef
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
+// Google Register/Login
+exports.googleAuth = async (req, res) => {
+  try {
+    const { token } = req.body;
+    if (!token) {
+      return res.status(400).json({ message: "Token is required!" });
+    }
+
+    // Verify Google token
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      // eslint-disable-next-line no-undef
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const { name, email } = ticket.getPayload();
+
+    // Check if user exists
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      // Register new user
+      user = new User({
+        name,
+        email,
+        password: "", // No password needed for Google users
+        role: "user", // Default role
+        isVerified: true, // Google users are auto-verified
+      });
+      await user.save();
+    }
+
+    // Generate JWT
+    // eslint-disable-next-line no-undef
+    const jwtToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
+    res.cookie("token", jwtToken, { httpOnly: true });
+    res.status(200).json({
+      message: "Login successful!",
+      token: jwtToken,
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };

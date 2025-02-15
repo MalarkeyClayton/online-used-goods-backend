@@ -4,16 +4,16 @@ const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      require: true,
     },
     email: {
       type: String,
-      required: true,
+      require: true,
       unique: true,
     },
     password: {
       type: String,
-      required: true,
+      require: true,
     },
     role: {
       type: String,
@@ -28,14 +28,17 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "/avatar/default-avatar.svg",
     },
-    address: {
-      type: String,
-    },
     country: {
       type: String,
+      require: true
+    },
+    address: {
+      type: String,
+      require: true
     },
     phone: {
       type: String,
+      require: true
     },
     skypeId: {
       type: String,
